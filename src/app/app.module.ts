@@ -7,6 +7,7 @@ import { LoginComponent } from './User/login/login.component';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { AppInitService } from './app-init.service';
+import { RegisterUserComponent } from './User/register-user/register-user.component';
 
 const startupServiceFactory = (appinit: AppInitService) => {
   console.debug("startupServiceFactory()");
@@ -16,7 +17,8 @@ const startupServiceFactory = (appinit: AppInitService) => {
 @NgModule({
   declarations: [
     AppComponent,
-    LoginComponent
+    LoginComponent,
+    RegisterUserComponent
   ],
   imports: [
     BrowserModule,
