@@ -1,0 +1,28 @@
+<div class ="tableContainer">
+    <table>
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Description</th>
+                <th>Date Started</th>
+                <th>Date Completed</th>
+                <th>isComplete</th>
+                <th>priority</th>
+                <th>Mark Completed</th>
+                <th>Details</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let todo of ToDos">
+            <td>{{todo.name}}</td>
+            <td>{{todo.description}}</td>
+            <td>{{todo.dateStarted}}</td>
+            <td>{{todo.dateComleted}}</td>
+            <td>{{todo.isComplete}}</td>
+            <td>{{todo.priority}}</td>
+            <td>Mark Completed</td>
+            <td>Details</td>
+        </tr>
+        </tbody>
+    </table>
+</div>

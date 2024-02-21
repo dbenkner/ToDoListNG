@@ -8,6 +8,7 @@ import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { AppInitService } from './app-init.service';
 import { RegisterUserComponent } from './User/register-user/register-user.component';
+import { ListToDosByIdComponent } from './todos/list-to-dos-by-id/list-to-dos-by-id.component';
 
 const startupServiceFactory = (appinit: AppInitService) => {
   console.debug("startupServiceFactory()");
@@ -18,7 +19,8 @@ const startupServiceFactory = (appinit: AppInitService) => {
   declarations: [
     AppComponent,
     LoginComponent,
-    RegisterUserComponent
+    RegisterUserComponent,
+    ListToDosByIdComponent
   ],
   imports: [
     BrowserModule,
