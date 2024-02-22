@@ -16,9 +16,9 @@
             <tr *ngFor="let todo of ToDos">
             <td>{{todo.name}}</td>
             <td>{{todo.description}}</td>
-            <td>{{todo.dateStarted}}</td>
+            <td>{{todo.dateStarted | date:'shortDate'}}</td>
             <td>{{todo.dateComleted}}</td>
-            <td>{{todo.isComplete}}</td>
+            <td>{{todo.isComplete? 'YES':'NO' }}</td>
             <td>{{todo.priority}}</td>
             <td>Mark Completed</td>
             <td>Details</td>

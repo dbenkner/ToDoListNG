@@ -5,7 +5,7 @@ export class ToDo {
     id:number = 0;
     name:string = "";
     description?:string;
-    dateStarted: Number|Date = Date.now();
+    dateStarted!: Date;
     dateComleted?:Date;
     isComplete:Boolean = false;
     priority: number = 2;

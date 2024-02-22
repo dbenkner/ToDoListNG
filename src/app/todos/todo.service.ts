@@ -8,7 +8,7 @@ import { ToDo } from './todo';
   providedIn: 'root'
 })
 export class TodoService {
-  get url() { return `${this.globalSvc.config}/todos`;}
+  get url() {return `${this.globalSvc.config.baseurl}/todo`;}
   constructor(private http: HttpClient, private globalSvc: GlobalService){}
 
   getToDosByUserId(id:number):Observable<ToDo[]> {

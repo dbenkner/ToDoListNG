@@ -22,7 +22,7 @@ export class LoginComponent {
         next:(res) => {
           this.globalSvc.loggedInUser = res;
           console.debug("User signed in");
-          this.user = this.globalSvc.loggedInUser();
+          this.router.navigate(['/listbyuid']);
         },
         error:(err) => {
           console.error(err);

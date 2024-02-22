@@ -15,7 +15,10 @@ export class ListToDosByIdComponent {
 
   constructor(private http:HttpClient, private globalSvc:GlobalService, private toDoSvc:TodoService, private route:Router ) {}
 
-  ngOnInt() {
+  ngOnInit() {
+    if(this.globalSvc.loggedInUser === null){
+      this.route.navigate(['/login']);
+    }
     this.toDoSvc.getToDosByUserId(this.globalSvc.loggedInUser.id).subscribe({
       next:(res) => {
         this.ToDos = res;
