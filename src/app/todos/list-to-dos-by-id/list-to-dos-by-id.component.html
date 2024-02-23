@@ -1,4 +1,5 @@
 <div class ="tableContainer">
+    <div class="menu"><span>Show Completed?<input [(ngModel)]="showComplete" type="checkbox" (click)="showCompletes()"></span></div>
     <table>
         <thead>
             <tr>
@@ -13,7 +14,7 @@
             </tr>
         </thead>
         <tbody>
-            <tr *ngFor="let todo of ToDos">
+            <tr *ngFor="let todo of ToDos | complete:showComplete">
             <td>{{todo.name}}</td>
             <td>{{todo.description}}</td>
             <td>{{todo.dateStarted | date:'shortDate'}}</td>

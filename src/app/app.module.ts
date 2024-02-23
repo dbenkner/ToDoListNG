@@ -9,6 +9,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { AppInitService } from './app-init.service';
 import { RegisterUserComponent } from './User/register-user/register-user.component';
 import { ListToDosByIdComponent } from './todos/list-to-dos-by-id/list-to-dos-by-id.component';
+import { CompletePipe } from './core/complete.pipe';
 
 const startupServiceFactory = (appinit: AppInitService) => {
   console.debug("startupServiceFactory()");
@@ -20,7 +21,8 @@ const startupServiceFactory = (appinit: AppInitService) => {
     AppComponent,
     LoginComponent,
     RegisterUserComponent,
-    ListToDosByIdComponent
+    ListToDosByIdComponent,
+    CompletePipe
   ],
   imports: [
     BrowserModule,
