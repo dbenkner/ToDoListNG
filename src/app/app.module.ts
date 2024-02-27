@@ -11,6 +11,7 @@ import { RegisterUserComponent } from './User/register-user/register-user.compon
 import { ListToDosByIdComponent } from './todos/list-to-dos-by-id/list-to-dos-by-id.component';
 import { CompletePipe } from './core/complete.pipe';
 import { NewTodoComponent } from './todos/new-todo/new-todo.component';
+import { PrioritylevelPipe } from './todos/prioritylevel.pipe';
 
 
 const startupServiceFactory = (appinit: AppInitService) => {
@@ -25,7 +26,8 @@ const startupServiceFactory = (appinit: AppInitService) => {
     RegisterUserComponent,
     ListToDosByIdComponent,
     NewTodoComponent,
-    CompletePipe
+    CompletePipe,
+    PrioritylevelPipe
   ],
   imports: [
     BrowserModule,
