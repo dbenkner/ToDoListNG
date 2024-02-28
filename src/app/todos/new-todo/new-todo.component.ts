@@ -25,6 +25,7 @@ export class NewTodoComponent {
     this.toDoSvc.createNewToDo(this.toDoDTO).subscribe({
       next:(res) => {
         console.debug(res);
+        this.route.navigate(['/listbyuid'])
       },
       error:(err) => {
         console.error(err);
