@@ -12,6 +12,7 @@ import { ListToDosByIdComponent } from './todos/list-to-dos-by-id/list-to-dos-by
 import { CompletePipe } from './core/complete.pipe';
 import { NewTodoComponent } from './todos/new-todo/new-todo.component';
 import { PrioritylevelPipe } from './todos/prioritylevel.pipe';
+import { TodoDetailsComponent } from './todos/todo-details/todo-details.component';
 
 
 const startupServiceFactory = (appinit: AppInitService) => {
@@ -27,7 +28,8 @@ const startupServiceFactory = (appinit: AppInitService) => {
     ListToDosByIdComponent,
     NewTodoComponent,
     CompletePipe,
-    PrioritylevelPipe
+    PrioritylevelPipe,
+    TodoDetailsComponent
   ],
   imports: [
     BrowserModule,

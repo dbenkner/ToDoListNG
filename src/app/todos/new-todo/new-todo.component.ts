@@ -19,7 +19,11 @@ export class NewTodoComponent {
     private toDoSvc: TodoService,
     private route: Router
   ){}
-
+  ngOnInit(): void {
+    if(this.globalSvc.loggedInUser === null) {
+      this.route.navigate(['/login'])
+    }
+  }
   newToDo():void {
     this.toDoDTO.userId = this.globalSvc.loggedInUser.id;
     this.toDoSvc.createNewToDo(this.toDoDTO).subscribe({

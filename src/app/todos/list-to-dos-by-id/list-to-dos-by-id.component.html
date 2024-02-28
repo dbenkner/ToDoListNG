@@ -25,7 +25,7 @@
             <td>{{todo.isComplete? 'YES':'NO' }}</td>
             <td>{{todo.priority | prioritylevel }}</td>
             <td>Mark Completed</td>
-            <td>Details</td>
+            <td><a routerLink="/todo/{{todo.id}}">Details</a></td>
         </tr>
         </tbody>
     </table>
