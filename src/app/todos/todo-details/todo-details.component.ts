@@ -3,6 +3,7 @@ import { ToDo } from '../todo';
 import { ActivatedRoute, Route, Router, RouterLink } from '@angular/router';
 import { GlobalService } from 'src/app/core/global.service';
 import { TodoService } from '../todo.service';
+import { TodoitemsService } from 'src/app/todoitems/todoitems.service';
 
 @Component({
   selector: 'app-todo-details',
@@ -15,6 +16,7 @@ export class TodoDetailsComponent {
   constructor(
     private glovalSvc: GlobalService,
     private toDoSvc: TodoService,
+    private toDoItemSvc: TodoitemsService,
     private router: ActivatedRoute,
     private route: Router) {}
 
@@ -25,6 +27,18 @@ export class TodoDetailsComponent {
         next:(res) => {
           this.toDo = res;
           console.debug(res);
+          this.toDoItemSvc.toDoId = res.id;
+        },
+        error:(err) => {
+          console.error(err);
+        }
+      });
+    }
+
+    markComplete(id:number):void {
+      this.toDoItemSvc.completeToDoItem(id).subscribe({
+        next:(res) => {
+          console.log(res);
         },
         error:(err) => {
           console.error(err);

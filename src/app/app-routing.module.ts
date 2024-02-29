@@ -6,6 +6,7 @@ import { ListToDosByIdComponent } from './todos/list-to-dos-by-id/list-to-dos-by
 import { NewToDoDto } from './todos/DTOs/newTodo';
 import { NewTodoComponent } from './todos/new-todo/new-todo.component';
 import { TodoDetailsComponent } from './todos/todo-details/todo-details.component';
+import { NewTodoItemComponent } from './todoitems/new-todo-item/new-todo-item.component';
 
 const routes: Routes = [
   {path: '', redirectTo:'/login', pathMatch:'full'},
@@ -13,7 +14,8 @@ const routes: Routes = [
   {path: 'register', component:RegisterUserComponent},
   {path: 'listbyuid', component:ListToDosByIdComponent},
   {path: 'newtodo', component:NewTodoComponent},
-  {path: 'todo/:id', component:TodoDetailsComponent}
+  {path: 'todo/:id', component:TodoDetailsComponent},
+  {path: 'todoitem/new', component:NewTodoItemComponent}
 ];
 
 @NgModule({
