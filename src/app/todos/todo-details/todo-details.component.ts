@@ -12,6 +12,7 @@ import { TodoitemsService } from 'src/app/todoitems/todoitems.service';
 })
 export class TodoDetailsComponent {
   toDo!:ToDo;
+  allComplete:boolean = false;
 
   constructor(
     private glovalSvc: GlobalService,
@@ -21,6 +22,12 @@ export class TodoDetailsComponent {
     private route: Router) {}
 
     ngOnInit():void {
+      if(this.glovalSvc.loggedInUser === null) {
+        this.route.navigate(['/login']);
+      }
+      this.onRefresh();
+    }
+    onRefresh():void{
       let id:number = this.router.snapshot.params['id'];
       console.log(id);
       this.toDoSvc.getToDoById(id).subscribe({
@@ -28,17 +35,37 @@ export class TodoDetailsComponent {
           this.toDo = res;
           console.debug(res);
           this.toDoItemSvc.toDoId = res.id;
+          for(let item of this.toDo.items!) {
+            if(item.isComplete === false) {
+              this.allComplete = false;
+              break;
+            }
+            else {
+              this.allComplete = true;
+            }
+          }
         },
         error:(err) => {
           console.error(err);
         }
       });
     }
-
     markComplete(id:number):void {
       this.toDoItemSvc.completeToDoItem(id).subscribe({
         next:(res) => {
           console.log(res);
+          this.ngOnInit();
+        },
+        error:(err) => {
+          console.error(err);
+        }
+      });
+    }
+    completeToDo(id:number){
+      this.toDoSvc.markComplete(id).subscribe({
+        next:(res) => {
+          console.debug(res);
+          this.ngOnInit();
         },
         error:(err) => {
           console.error(err);

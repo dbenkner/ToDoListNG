@@ -26,6 +26,12 @@
         </tr>
     </tbody>
 </table>
+<div *ngIf="allComplete; else elseBlock">
+    <button class="btn btn-primary" (click)="completeToDo(toDo.id)">Complete</button>
+</div>
+<ng-template #elseBlock>
+    <button class="btn btn-primary" disabled>Complete</button>
+</ng-template>
 <h3>Todo Items/SubTasks</h3>
 <a routerLink="/todoitem/new">Add Item</a>
 <table class="table table-sm">
@@ -42,7 +48,7 @@
             <td>{{item.name}}</td>
             <td>{{item.description}}</td>
             <td>{{item.isComplete? 'Yes':'No'}}</td>
-            <td><button class="btn btn-action">Complete</button></td>
+            <td><button class="btn btn-primary btn-small" (click)="markComplete(item.id)">Complete</button></td>
         </tr>
     </tbody>
 </table>

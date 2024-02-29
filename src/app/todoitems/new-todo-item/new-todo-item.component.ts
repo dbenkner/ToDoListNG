@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { Route } from '@angular/router';
+import { Route, Router } from '@angular/router';
 import { GlobalService } from 'src/app/core/global.service';
 import { TodoitemsService } from '../todoitems.service';
 import { ToDoItems } from '../todoitems';
@@ -16,7 +16,8 @@ export class NewTodoItemComponent {
   ToDoItemDto: toDoItemDTO = new toDoItemDTO();
 
   constructor(private globalSvc:GlobalService,
-    private toDoItemSvc:TodoitemsService){}
+    private toDoItemSvc:TodoitemsService,
+    private router:Router){}
 
 
 
@@ -25,6 +26,7 @@ export class NewTodoItemComponent {
       this.toDoItemSvc.newToDoItem(this.ToDoItemDto).subscribe({
         next:(res) => {
           console.debug(res);
+          this.router.navigate([`/todo/${res.toDoId}`])
         },
         error:(err) => {
           console.error(err);

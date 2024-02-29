@@ -21,4 +21,7 @@ export class TodoService {
   getToDoById(id:number):Observable<ToDo>{
     return this.http.get(`${this.url}/${id}`) as Observable<ToDo>;
   }
+  markComplete(id:number):Observable<ToDo>{
+    return this.http.put(`${this.url}/comp/${id}`, id) as Observable<ToDo>
+  }
 }
